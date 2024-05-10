@@ -7,97 +7,11 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <script language="javascript" type="text/javascript">
-        // 表示するための画像、名前を配列にセットする
-        var images = [
-              "images/ikeda_momoka.jpg"
-            , "images/ohashi_misaki.jpg"
-            , "images/ogawa_hanaka.jpg"
-            , "images/sonoda_rei.jpg"
-            , "images/nishio_momoko.jpg"
-            , "images/hamazaki_nanami.jpg"
-            , "images/hinano.jpg"
-            , "images/minami_haruka.jpg"
-        ];
-        var names = [
-              "池田 百々香"
-            , "大橋 海咲"
-            , "小川 華果"
-            , "園田 れい"
-            , "西尾 桃子"
-            , "浜崎 七海"
-            , "日菜"
-            , "三波 春香"
-        ];
-
-        //// 選択された画像を格納する配列を定義する
-        //var selectedImages = [];
-
-        // ルーレット動作状況を管理する配列
-        var roulettes = [];
-
-        // ルーレットを開始
-        function start() {
-            for (let rIndex = 1; rIndex <= 3; rIndex++) {
-                roulettes.push(setInterval(function () { startRoulette(rIndex) }, 100));
-
-                // ストップボタンON
-                document.getElementById("stop-" + rIndex).disabled = false;
-            }
-
-            // スタートボタンOFF
-            document.getElementById("start").disabled = true;
-        }
-
-        function startRoulette(rIndex) {
-            var randomIndex;
-            var randomImage;
-            var randomName;
-            var len = images.length;
-
-            // imagesからランダムな数値を作成
-            randomIndex = Math.floor(Math.random() * len);
-            randomImage = images[randomIndex];
-            randomName = names[randomIndex];
-
-            // 画像を表示する
-            document.getElementById("image-container-" + rIndex).innerHTML = "<img src='" + randomImage + "' width='200'>";
-            // 名前を表示する
-            document.getElementById("name-container-" + rIndex).innerHTML = "<p>" + randomName + "</p>";
-        }
-
-        // ルーレットを停止
-        function stop(rIndex) {
-            if (roulettes[rIndex - 1]) {
-                clearInterval(roulettes[rIndex - 1]);
-            }
-
-            // ストップボタンOFF
-            document.getElementById("stop-" + rIndex).disabled = true;
-        }
-
-        function reset() {
-            // スタートボタンON
-            document.getElementById("start").disabled = false;
-
-            for (let rIndex = 1; rIndex <= 3; rIndex++) {
-                // 停止処理
-                stop(rIndex);
-                document.getElementById("image-container-" + rIndex).innerHTML = "<img src='images/start.jpg' width='200'>";
-                document.getElementById("name-container-" + rIndex).innerHTML = "<p>推し" + rIndex + "</p>";
-            }
-            roulettes = [];
-        }
-
-        // ページ読み込み時に実行
-        window.onload = function () {
-            reset();
-        }
+    <script src="./IBERIs_roulette.js">
     </script>
 
 </head>
 <body>
-    <!--<button onclick="showRandomImage()">画像を表示する</button>-->
     <input type="button" value="リセット" id="reset" onclick="reset();" />
     <input type="button" value="スタート" id="start" onclick="start();" />
     <table>
