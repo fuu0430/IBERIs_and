@@ -171,8 +171,6 @@ function apprySetting() {
 
     // リセット処理
     reset();
-    console.log(checkMembers);
-    console.log(roulette1List);
 }
 
 $(function() {
@@ -191,7 +189,7 @@ $(function() {
     });
 
     // トグル制御（オプション設定）
-    $('#optionSetting').click(function () {
+    $('#optionSetting').on('click', function () {
         $('#opptions').slideToggle(toggleFunc);
     });
     //  オプション設定の開閉文字変更
