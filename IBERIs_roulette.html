@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./IBERIs_roulette.js">
     </script>
 
@@ -16,38 +17,89 @@
     <input type="button" value="スタート" id="start" onclick="start();" />
     <table>
         <tr style="height: 50px;">
-            <td>
+            <td class="roulette-1">
                 <div id="name-container-1" style="height: 30px; text-align:center; "></div>
+                <input type="hidden" id="number-container-1" value="" />
             </td>
-            <td>
+            <td class="roulette-2">
                 <div id="name-container-2" style="height: 30px; text-align: center; "></div>
+                <input type="hidden" id="number-container-2" value="" />
             </td>
-            <td>
+            <td class="roulette-3">
                 <div id="name-container-3" style="height: 30px; text-align: center; "></div>
+                <input type="hidden" id="number-container-3" value="" />
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="roulette-1">
                 <div id="image-container-1" style="width: 200px; height: 300px; display: flex; align-items: center; "></div>
             </td>
-            <td>
+            <td class="roulette-2">
                 <div id="image-container-2" style="width: 200px; height: 300px; display: flex; align-items: center; "></div>
             </td>
-            <td>
+            <td class="roulette-3">
                 <div id="image-container-3" style="width: 200px; height: 300px; display: flex; align-items: center; "></div>
             </td>
         </tr>
         <tr>
-            <td align="center">
+            <td class="roulette-1" align="center">
                 <input type="button" value="ストップ" id="stop-1" onclick="stop(1);" />
             </td>
-            <td align="center">
+            <td class="roulette-2" align="center">
                 <input type="button" value="ストップ" id="stop-2" onclick="stop(2);" />
             </td>
-            <td align="center">
+            <td class="roulette-3" align="center">
                 <input type="button" value="ストップ" id="stop-3" onclick="stop(3);" />
             </td>
         </tr>
     </table>
+    <br />
+    <div style="display: flex;">
+        <div>
+            <h3 id="optionSetting" style="margin: 0px;">オプション設定</h3>
+        </div>
+        <p id="toggleMessage" style="margin: 0px; text-align: center;">▼</p>
+    </div>
+    <div id="opptions" style="display: none;">
+        <div style="display: flex;">
+            <h4 style="margin-top: 10px; margin-bottom: 0px; width: 100px;">メンバー</h4>
+            <div style="margin-top: 10px; margin-left: 10px;">
+                <label><input type="checkbox" id="check_all" name="check_all" checked="checked">すべて</label>
+            </div>
+        </div>
+        <div id="members">
+            <label><input type="checkbox" name="members" value="1" class="member" checked="checked">池田 百々香</label>
+            <label><input type="checkbox" name="members" value="2" class="member" checked="checked">大橋 海咲</label>
+            <label><input type="checkbox" name="members" value="3" class="member" checked="checked">小川 華果</label>
+            <label><input type="checkbox" name="members" value="4" class="member" checked="checked">園田 れい</label>
+            <br />
+            <label><input type="checkbox" name="members" value="5" class="member" checked="checked">西尾 桃子</label>
+            <label><input type="checkbox" name="members" value="6" class="member" checked="checked">浜崎 七海</label>
+            <label><input type="checkbox" name="members" value="7" class="member" checked="checked">日菜</label>
+            <label><input type="checkbox" name="members" value="8" class="member" checked="checked">三波 春香</label>
+        </div>
+
+        <div style="display: flex;">
+                <h4 style="margin-top: 10px; margin-bottom: 3px; width: 120px;">ルーレット数</h4>
+            <div style="margin-top: 10px; margin-left: 10px; text-align: center;">
+                <select id="rouletteNum" name="rouletteNum">
+                    <option value="1">1個</option>
+                    <option value="2">2個</option>
+                    <option value="3" selected="selected">3個</option>
+                </select>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <h4 style="margin-top: 10px; margin-bottom: 3px; width: 120px;">重複</h4>
+            <div style="margin-top: 10px; margin-left: 10px; text-align: center;">
+                <label><input type="checkbox" id="isDuplicate" name="isDuplicate" value="1">あり</label>
+            </div>
+        </div>
+
+        <div style="margin-top: 10px;">
+            <input type="button" value="設定反映" id="apprySetting" onclick="apprySetting();" />
+        </div>
+    </div>
 </body>
 </html>
