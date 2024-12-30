@@ -55,7 +55,7 @@ function displayVa(rouletteId, number, isSpecial = false) {
     }
 
     // 画像を表示する
-    $("#image-container-" + rouletteId).html("<img src='" + image + "' width='200'>");
+    $("#image-container-" + rouletteId).html("<img src='" + image + "' width='300'>");
     // 名前を表示する
     $("#name-container-" + rouletteId).html("<p>" + name + "</p>");
     $("#number-container-" + rouletteId).val(number);
@@ -113,7 +113,7 @@ function reset() {
         stop(rouletteId, true);
 
         // 画像、名前リセット
-        $("#image-container-" + rouletteId).html("<img src='./images/start.jpg' width='200'>");
+        $("#image-container-" + rouletteId).html("<img src='./images/start.jpg' width='300'>");
         $("#name-container-" + rouletteId).html("<p>推し" + rouletteId + "</p>");
         $("#number-container-" + rouletteId).val("");
 
